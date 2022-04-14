@@ -73,13 +73,13 @@ blueprint:
     clickAction:
       name: Click Action
       description: Clicking on the notification takes you where?
-      default: https://my.home-assistant.io/redirect/supervisor/
+      default: https://www.home-assistant.io/latest-release-notes/
     include_release_notes:
       name: Include release notes
-      description: Add a "release notes" button to the notification - CURRENTLY BROKEN
+      description: Add a "release notes" button to the notification
       selector:
         boolean: {}
-      default: false
+      default: true
     include_hasspodcast:
       name: Include HassPodcast link
       description: Add a HassPodcast button to the notification
@@ -98,7 +98,7 @@ variables:
   update_sensor: !input 'update_sensor'
   update_version: !input 'update_version'
   newest_version: '{{ states(update_version) }}'
-  release_notes: '{{ states[update_sensor].attributes.release_notes }}'
+  release_notes: 'https://www.home-assistant.io/latest-release-notes/'
   include_release_notes: !input 'include_release_notes'
   include_hasspodcast: !input 'include_hasspodcast'
   color: !input 'color'
